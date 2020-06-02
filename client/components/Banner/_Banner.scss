@@ -1,11 +1,17 @@
 .page-banner {
   display: flex;
   justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
 
   .left-banner-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     .banner-text {
       font-size: 2rem;
-      font-weight: 700;
+      font-weight: 500;
       padding: 6px 0;
       text-transform: uppercase;
       color: #fff;
@@ -17,6 +23,13 @@
       display: flex;
       justify-content: space-between;
       width: 380px;
+    }
+  }
+
+  .right-banner-item {
+    img {
+      object-fit: contain;
+      width: 100%;
     }
   }
 }

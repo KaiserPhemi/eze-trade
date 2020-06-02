@@ -3,6 +3,7 @@ import React from "react";
 
 // components
 import Banner from "../Banner/Banner";
+import ProductPage from "../ProductPage/ProductPage";
 
 // styles
 import "./App.scss";
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div className="app-page">
       <Banner />
+      <ProductPage />
     </div>
   );
 };

@@ -24,7 +24,12 @@ const Banner = () => {
           <Button btnText={"search"} />
         </form>
       </div>
-      <div className="right-banner-item">Image</div>
+      <div className="right-banner-item">
+        <img
+          src="https://drive.google.com/uc?export=view&id=1CV3HsyA0RuoHnIDCnhnhw1mAMimPzymg"
+          alt="banner_img"
+        />
+      </div>
     </div>
   );
 };
