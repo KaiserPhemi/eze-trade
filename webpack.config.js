@@ -18,6 +18,29 @@ module.exports = {
     publicPath: "/",
   },
   module: {
-    rules: [],
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: { loader: "babel-loader" },
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      favicon: "./client/favicon.ico",
+      hash: true,
+      template: "./client/index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: prodMode ? "[name].[contenthash:8].css" : "[name].css",
+    }),
+  ],
+  resolve: {
+    extensions: [".jsx", ".js", ".json"],
   },
 };
