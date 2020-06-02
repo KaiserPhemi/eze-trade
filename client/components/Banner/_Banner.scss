@@ -1,0 +1,14 @@
+.page-banner {
+  display: flex;
+  justify-content: space-between;
+
+  .left-banner-item {
+    .banner-text {
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .search-field-form {
+    }
+  }
+}
