@@ -1,5 +1,6 @@
 // react libraries
 import React from "react";
+import PropTypes from "prop-types";
 
 // styles
 import "./_ProductItem.scss";
@@ -10,9 +11,15 @@ import Button from "../Common/Button";
 /**
  * @desc an item on the product list
  */
-const ProductItem = (
-  { name, availableUnit, grade, imgUrl, storage, unitPrice, lockStatus },
-) => {
+const ProductItem = ({
+  name,
+  availableUnit,
+  grade,
+  imgUrl,
+  storage,
+  unitPrice,
+  lockStatus,
+}) => {
   return (
     <div className="product-item">
       <div className="img-card">
@@ -27,17 +34,31 @@ const ProductItem = (
       </div>
       <div className="unit-price">
         <div>Unit Price</div>
-        <div>{"$"}{unitPrice}</div>
+        <div>
+          {"$"}
+          {unitPrice}
+        </div>
       </div>
       <div className="available-unit">
         <span>{availableUnit}</span>
-        <span>{" "}Available</span>
+        <span> Available</span>
       </div>
       <div className="btn-wrapper">
         <Button btnText={"buy"} />
       </div>
     </div>
   );
+};
+
+// prop type checking
+ProductItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  availableUnit: PropTypes.number.isRequired,
+  grade: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  storage: PropTypes.string.isRequired,
+  unitPrice: PropTypes.number.isRequired,
+  lockStatus: PropTypes.string.isRequired,
 };
 
 export default ProductItem;

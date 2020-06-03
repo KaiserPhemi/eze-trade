@@ -8,6 +8,18 @@
   .section-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 2rem;
   }
+}
+
+@media (max-width: 767px) {
+  /* start of medium tablet styles */
+  .section-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* start of phone styles */
 }
