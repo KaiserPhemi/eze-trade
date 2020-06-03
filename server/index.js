@@ -1,6 +1,18 @@
 // libraries
+import dotenv from "dotenv";
 import express from "express";
 
-const app = express();
+dotenv.config();
 
-app.listen(5555, () => console.log(`App running...`));
+// main router
+import mainRouter from "./api/v1";
+
+// instantiate express app
+const app = express();
+const PORT = 5555;
+
+// default routes
+app.use("/api/v1", mainRouter);
+app.get("*");
+
+app.listen(PORT, () => console.log(`App running on port ${PORT}...`));
