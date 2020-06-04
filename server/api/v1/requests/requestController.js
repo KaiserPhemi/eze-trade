@@ -18,7 +18,7 @@ const requestController = {
       const buyRequests = await BuyRequest.find();
       allTradeRequests = {
         sellRequests: [...sellRequests],
-        buyReqyests: [...buyRequests],
+        buyRequests: [...buyRequests],
       };
       return res.status(200).send({
         message: "All Trade Request retrieved.",

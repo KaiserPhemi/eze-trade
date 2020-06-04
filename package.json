@@ -37,9 +37,10 @@
   },
   "scripts": {
     "coverage": "jest && coveralls < coverage/lcov.info",
-    "start": "",
+    "start": "NODE_ENV=production babel-node app.js",
     "build": "rm -rf dist & NODE_ENV=production webpack --mode production",
     "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node app.js",
-    "lint": "eslint client/"
+    "lint": "eslint client/",
+    "test": "jest"
   }
 }
