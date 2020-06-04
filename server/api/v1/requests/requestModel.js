@@ -32,4 +32,4 @@ const tradeRequestModel = new Schema({
 const BuyRequest = model("BuyRequest", tradeRequestModel);
 const SellRequest = model("SellRequest", tradeRequestModel);
 
-export default { BuyRequest, SellRequest };
+export { BuyRequest, SellRequest };
