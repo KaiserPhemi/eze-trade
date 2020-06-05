@@ -1,7 +1,16 @@
-"use strict";
+// third-party libraries
+import express from "express";
 
-var _chai = _interopRequireDefault(require("chai"));
+// controller
+import requestController from "./requestController";
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// router
+const tradeRequestRouter = express.Router();
 
-describe("/GET routes", function () {});
+// routes
+tradeRequestRouter
+  .route("/")
+  .get(requestController.getAllRequest)
+  .post(requestController.addRequest);
+
+export default tradeRequestRouter;

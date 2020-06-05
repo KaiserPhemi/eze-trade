@@ -1,22 +1,16 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _express = _interopRequireDefault(require("express"));
-
-var _requestController = _interopRequireDefault(require("./requestController"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 // third-party libraries
+import express from "express";
+
 // controller
+import requestController from "./requestController";
+
 // router
-var tradeRequestRouter = _express["default"].Router(); // routes
+const tradeRequestRouter = express.Router();
 
+// routes
+tradeRequestRouter
+  .route("/")
+  .get(requestController.getAllRequest)
+  .post(requestController.addRequest);
 
-tradeRequestRouter.route("/").get(_requestController["default"].getAllRequest).post(_requestController["default"].addRequest);
-var _default = tradeRequestRouter;
-exports["default"] = _default;
+export default tradeRequestRouter;
