@@ -35,6 +35,9 @@ module.exports = {
       },
     ],
   },
+  // performance: {
+  //   hints: false,
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       favicon: "./client/favicon.ico",
