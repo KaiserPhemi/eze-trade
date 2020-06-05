@@ -26,7 +26,6 @@
   "dependencies": {
     "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",
-    "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -41,5 +40,8 @@
     "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node index.js",
     "lint": "eslint client/",
     "test": "jest"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
