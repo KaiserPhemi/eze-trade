@@ -5,8 +5,6 @@
   "author": "KaiserPhemi <kaiser.phemi@protonmail.ch>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
@@ -27,6 +25,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/register": "^7.10.1",
     "bootstrap": "^4.5.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -37,8 +38,8 @@
   },
   "scripts": {
     "coverage": "jest && coveralls < coverage/lcov.info",
-    "start": "NODE_ENV=production node lib/app.js",
-    "build": "rm -rf dist & NODE_ENV=production webpack --mode production & babel app.js server -d server",
+    "start": "NODE_ENV=production babel-node app.js",
+    "build": "rm -rf dist & NODE_ENV=production webpack --mode production",
     "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node app.js",
     "lint": "eslint client/",
     "test": "jest"
