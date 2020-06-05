@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // third-party libraries
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -41,7 +42,7 @@ module.exports = {
       template: "./client/index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: prodMode ? "[name].[contenthash:8].css" : "[name].css",
+      filename: prodMode ? "[name].[contenthash:8].min.css" : "[name].css",
     }),
   ],
   resolve: {
