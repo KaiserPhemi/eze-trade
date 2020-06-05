@@ -1,16 +1,18 @@
+/* eslint-disable no-undef */
 // third-party libraries
+import request from "supertest";
 import express from "express";
 
-// controller
-import requestController from "./requestController";
+const app = express();
 
-// router
-const tradeRequestRouter = express.Router();
-
-// routes
-tradeRequestRouter
-  .route("/")
-  .get(requestController.getAllRequest)
-  .post(requestController.addRequest);
-
-export default tradeRequestRouter;
+// test suite
+describe("Test the root path", () => {
+  test("It should response the GET method", () => {
+    request(app)
+      .get("/")
+      .then((res) => {
+        expect(res.statusCode).toBe(200);
+        done();
+      });
+  });
+});
