@@ -6,6 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-jest": "^26.0.1",
+    "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "css-loader": "^3.5.3",
@@ -13,6 +14,7 @@
     "eslint-plugin-react": "^7.20.0",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.0.1",
+    "jest-transform-stub": "^2.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
@@ -33,16 +35,18 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.17",
+    "morgan": "^1.10.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "winston": "^3.2.1"
   },
   "scripts": {
-    "coverage": "jest && coveralls < coverage/lcov.info",
+    "cover": "NODE_ENV=test jest && coveralls < coverage/lcov.info",
     "start": "babel-node index.js",
     "build": "rm -rf dist & NODE_ENV=production webpack --mode production",
     "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node index.js",
     "lint": "eslint client/",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "engines": {
     "node": "12.x"

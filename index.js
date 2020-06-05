@@ -1,36 +1,22 @@
 /* eslint-disable no-undef */
 // libraries
+import "babel-polyfill";
 import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import mongoose from "mongoose";
+import app from "./server/api/v1";
 
 dotenv.config();
 
-console.log("the link", process.env.DB_URI);
-// main router
-import mainRouter from "./server/api/v1";
-
-// instantiate app & declare constants
-const app = express();
+// app port
 const PORT = parseInt(process.env.PORT, 10);
 
+// database connection
 const DB_URI =
   process.env.NODE_ENV === "production"
     ? process.env.DB_URI
     : process.env.DB_URI_LOCAL;
-
-// middlewares
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // database connection
 mongoose.connect(
@@ -51,8 +37,7 @@ mongoose.connect(
 // static file path
 app.use(express.static(path.join(__dirname, "dist")));
 
-// default routes
-app.use("/api/v1", mainRouter);
+// default route
 app.get("*", (req, res) => {
   if (process.env.NODE_ENV === "production") {
     return res.sendFile(path.join(__dirname, "dist", "index.html"));
@@ -63,4 +48,13 @@ app.get("*", (req, res) => {
 });
 
 // start app
-app.listen(PORT, () => console.log(`App running on port ${PORT}...`));
+if (!module.parent) {
+  app.listen(PORT, (error) => {
+    if (error) {
+      throw error;
+    }
+    console.log(`App started. Listening on port ${PORT}...`);
+  });
+}
+
+export default app;
