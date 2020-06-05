@@ -26,6 +26,7 @@
   "dependencies": {
     "@babel/core": "^7.10.2",
     "@babel/node": "^7.10.1",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -35,9 +36,9 @@
   },
   "scripts": {
     "coverage": "jest && coveralls < coverage/lcov.info",
-    "start": "babel-node app.js",
+    "start": "babel-node index.js",
     "build": "rm -rf dist & NODE_ENV=production webpack --mode production",
-    "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node app.js",
+    "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node index.js",
     "lint": "eslint client/",
     "test": "jest"
   }
