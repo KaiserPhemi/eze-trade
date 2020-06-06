@@ -1,12 +1,12 @@
 // third-party libraries
 import winston from "winston";
-import path from "path";
+// import path from "path";
 
 // logging optoins
 const options = {
   file: {
     level: "info",
-    filename: path.resolve("logs/app.log"),
+    filename: "logs/app.log",
     handleExceptions: true,
     json: true,
     maxsize: 5242880,
@@ -32,7 +32,7 @@ const logger = new winston.createLogger({
 
 // logging streams
 logger.stream = {
-  write(message, encoding) {
+  write(message) {
     logger.info(message);
   },
 };

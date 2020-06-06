@@ -1,1 +1,1 @@
-web: yarn start
+web: babel-node index.js
