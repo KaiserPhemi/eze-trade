@@ -43,7 +43,7 @@
   },
   "scripts": {
     "cover": "NODE_ENV=test jest && coveralls < coverage/lcov.info",
-    "start": "babel-node index.js",
+    "start": "NODE_ENV=production babel-node index.js",
     "build": "rm -rf dist & NODE_ENV=production webpack --mode production",
     "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node index.js",
     "lint": "eslint client/",

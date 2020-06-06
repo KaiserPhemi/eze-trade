@@ -17,10 +17,11 @@ const PORT = parseInt(process.env.PORT, 10);
 // database connection
 const DB_URI =
   process.env.NODE_ENV === "production"
-    ? process.env.DB_URI
+    ? process.env.DB_URI_PROD
     : process.env.DB_URI_LOCAL;
 
 // database connection
+console.log("db", DB_URI);
 mongoose.connect(
   DB_URI,
   {
