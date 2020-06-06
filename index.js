@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import mongoose from "mongoose";
+
+// express app
 import app from "./server/api/v1";
 
 dotenv.config();

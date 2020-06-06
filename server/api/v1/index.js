@@ -1,6 +1,10 @@
 /* eslint-disable no-undef */
 // third-party libraries
 import express from "express";
+import morgan from "morgan";
+
+// logging config
+import logger from "../../config/winston.config";
 
 // routes
 import tradeRequestRouter from "./requests/requestRoutes";
@@ -9,6 +13,7 @@ import tradeRequestRouter from "./requests/requestRoutes";
 const app = express();
 
 // middlewares
+app.use(morgan("combined", { stream: logger.stream }));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
