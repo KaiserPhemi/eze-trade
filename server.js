@@ -14,7 +14,7 @@ dotenv.config();
 // database connection
 const DB_URI =
   process.env.NODE_ENV === "production"
-    ? process.env.DB_URI_PROD
+    ? process.env.MONGODB_URI
     : process.env.DB_URI_LOCAL;
 
 // database connection

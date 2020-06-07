@@ -7,7 +7,6 @@
   "devDependencies": {
     "@testing-library/react": "^10.2.1",
     "babel-jest": "^26.0.1",
-    "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "css-loader": "^3.5.3",
@@ -33,6 +32,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.17",
@@ -43,7 +43,7 @@
   },
   "scripts": {
     "cover": "NODE_ENV=test jest && coveralls < coverage/lcov.info",
-    "start": "babel-node index.js",
+    "start": "NODE_ENV=production babel-node index.js",
     "build": "rm -rf dist & NODE_ENV=production webpack --mode production",
     "dev": "NODE_ENV=development webpack-dev-server client/index.js & nodemon --exec babel-node index.js",
     "lint": "eslint client/",

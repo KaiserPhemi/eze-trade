@@ -4,7 +4,7 @@ import "babel-polyfill";
 import request from "supertest";
 
 // app import
-import app from "../../../../../index";
+import app from "../../../../../server";
 
 // test suite
 describe("Test the /request path", () => {

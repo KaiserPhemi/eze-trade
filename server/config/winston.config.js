@@ -11,7 +11,7 @@ const options = {
     json: true,
     maxsize: 5242880,
     maxFiles: 5,
-    colorize: false,
+    colorize: true,
   },
   console: {
     level: "debug",
