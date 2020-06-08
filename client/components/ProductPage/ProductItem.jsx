@@ -34,10 +34,7 @@ const ProductItem = ({
       </div>
       <div className="unit-price">
         <div>Unit Price</div>
-        <div>
-          {"$"}
-          {unitPrice}
-        </div>
+        <div>{unitPrice}</div>
       </div>
       <div className="available-unit">
         <span>{availableUnit}</span>
@@ -57,7 +54,7 @@ ProductItem.propTypes = {
   grade: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
   storage: PropTypes.string.isRequired,
-  unitPrice: PropTypes.number.isRequired,
+  unitPrice: PropTypes.string.isRequired,
   lockStatus: PropTypes.string.isRequired,
 };
 

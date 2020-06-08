@@ -39,14 +39,16 @@ const requestController = {
    * @param {object} res
    */
   async addRequest(req, res) {
-    const { requestType, deviceList } = req.body;
+    const { requestType, tradeData } = req.body;
+
     try {
       const createdReq =
         requestType === "buy"
-          ? await BuyRequest.create(deviceList)
-          : await SellRequest.insertMany(deviceList);
+          ? await BuyRequest.create(tradeData)
+          : await SellRequest.insertMany(tradeData);
       return res.status(201).send({
         message: "Trade Request added",
+        requestType,
         createdReq,
       });
     } catch (error) {

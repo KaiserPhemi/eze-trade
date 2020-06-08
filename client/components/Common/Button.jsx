@@ -8,13 +8,19 @@ import "./_Common.scss";
 /**
  * @desc default reusable button component
  */
-const Button = ({ btnText }) => {
-  return <button className="default-btn">{btnText}</button>;
+const Button = ({ btnText, onClick, disabled }) => {
+  return (
+    <button className="default-btn" onClick={onClick} disabled={disabled}>
+      {btnText}
+    </button>
+  );
 };
 
 // prop type checking
 Button.propTypes = {
-  btnText: PropTypes.string.string,
+  btnText: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  disabled: PropTypes.string,
 };
 
 export default Button;
