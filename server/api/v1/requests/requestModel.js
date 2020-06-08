@@ -27,7 +27,7 @@ const tradeRequestModel = new Schema({
   //   required: true,
   // },
 
-  device: {
+  name: {
     type: String,
     required: true,
   },

@@ -24,7 +24,18 @@ const ProductItem = ({
     <div className="product-item">
       <div className="img-card">
         <img src={imgUrl} alt={`${name}_img`} />
-        <div className="device-grade">{grade}</div>
+        <div className="device-grade">
+          <select id="grade" name="grade" className="grade-drop-down">
+            <option value="new">New</option>
+            <option value="a1">A1</option>
+            <option value="a2">A2</option>
+            <option value="b1">B1</option>
+            <option value="b2">B2</option>
+            <option value="c">C</option>
+            <option value="cb">CB</option>
+            <option value="cd">CD</option>
+          </select>
+        </div>
       </div>
       <div className="device-name">{name}</div>
       <div className="">

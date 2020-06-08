@@ -15,14 +15,20 @@
     }
 
     .device-grade {
+      display: flex;
       text-transform: uppercase;
-      border: 1px solid #fff;
-      padding: 4px;
-      font-size: 0.8rem;
-      width: 35px;
-      height: 25px;
+      border: 1px solid #ddd;
+      font-size: 0.6rem;
       text-align: center;
       border-radius: 4px;
+      height: 2rem;
+
+      .grade-drop-down {
+        font-size: 0.8rem;
+        background-color: inherit;
+        color: inherit;
+        border: none;
+      }
     }
   }
 

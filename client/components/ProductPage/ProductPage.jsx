@@ -38,16 +38,25 @@ const ProductPage = () => {
       </div>
       <div className="section-list">
         {responseObject && responseObject.length > 0 ? (
-          responseObject.map((device, index) => {
+          responseObject.map((device) => {
+            const {
+              _id,
+              name,
+              imgUrl,
+              status,
+              storageSize,
+              ...deviceGrade
+            } = device;
+            console.log(deviceGrade);
             return (
               <ProductItem
-                key={index}
-                name={device.device}
-                imgUrl={device.imgUrl}
-                grade={Object.keys(device) === "New"}
-                lockStatus={device.status}
-                storage={device.storageSize}
-                unitPrice={device.New}
+                key={_id}
+                name={name}
+                imgUrl={imgUrl}
+                grade={deviceGrade}
+                lockStatus={status}
+                storage={storageSize}
+                unitPrice={""}
                 availableUnit={400}
               />
             );

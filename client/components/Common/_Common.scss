@@ -7,6 +7,12 @@
   border-radius: 4px;
   text-transform: uppercase;
   height: 2.5rem;
+  width: 10rem;
+
+  &:disabled {
+    background-color: #ddd;
+    color: #020;
+  }
 }
 
 .default-input {
