@@ -5,6 +5,26 @@
 
 A trade request dashboard
 
+## Description
+
+This is a page that displays all devices on the Eze Wholesale platform.
+
+## Technology Stack
+
+### Back-End
+
+- [NodeJS](https://nodejs.org/en/docs/)
+- [Mongoose](https://mongoosejs.com/)
+- [Mongo DB](https://docs.mongodb.com/guides/)
+
+### Front-End
+
+- [React](https://reactjs.org/)
+
+### API Endpoint(s)
+
+- `/api/v1/requests` (accepts both GET & POST requests)
+
 ## Author
 
 - Oluwafemi Akinwa

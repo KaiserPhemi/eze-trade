@@ -20,20 +20,23 @@ const ProductPage = () => {
   const [totalItems, setTotalItems] = useState(0);
   const [activePage, setActivePage] = useState(1);
   const [currentItems, setCurrentItems] = useState([]);
+  const [sellRequests, setSellRequests] = useState([]);
+  const [buyRequests, setBuyRequests] = useState([]);
+  const [viewType, setViewType] = useState(null);
 
   /**
    * @desc makes API calls to get all request in the database
    */
   useEffect(() => {
-    // const getAllTradeRequest =
     (async () => {
       const response = await fetch("http://localhost:5555/api/v1/requests");
       const devices = await response.json();
       const { sellRequests, buyRequests } = devices.allTradeRequests;
-      setResponse([...buyRequests, ...sellRequests]);
-      setTotalItems([...buyRequests, ...sellRequests].length);
+      setSellRequests([...sellRequests]);
+      setBuyRequests([...buyRequests]);
+      await setResponse([...buyRequests, ...sellRequests]);
+      await setTotalItems([...buyRequests, ...sellRequests].length);
     })();
-    // getAllTradeRequest();
   }, []);
 
   /**
@@ -46,10 +49,27 @@ const ProductPage = () => {
     setCurrentItems(responseObject.slice(firstItemIndex, lastItemIndex));
   };
 
+  /**
+   * @desc handles
+   * @param {object} evt
+   */
+  const handleViewType = (evt) => {
+    setViewType(evt.target.value);
+
+    switch (viewType) {
+      case "buy":
+        setCurrentItems([...buyRequests]);
+        break;
+      case "sell":
+        setCurrentItems([...sellRequests]);
+        break;
+    }
+  };
+
   return (
     <div className="product-section">
       <div className="section-side-bar">
-        <ProductListSideBar />
+        <ProductListSideBar setViewType={handleViewType} />
       </div>
       <div className="item-list-wrapper">
         <div className="section-list">
@@ -79,7 +99,6 @@ const ProductPage = () => {
             <div>No items to display</div>
           )}
         </div>
-
         <Pagination
           activePage={activePage}
           totalItemsCount={totalItems}

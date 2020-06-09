@@ -33,3 +33,22 @@
     }
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .page-banner {
+    flex-direction: column-reverse;
+
+    .left-banner-item {
+      .banner-text {
+        width: 100vw;
+        width: 100vw;
+        font-size: 2rem;
+        text-align: center;
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+}

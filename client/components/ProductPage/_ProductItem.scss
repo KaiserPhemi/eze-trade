@@ -1,5 +1,4 @@
 .product-item {
-  // width: 25%;
   position: relative;
   border-radius: 4px;
   background-color: #1e242f;
@@ -64,5 +63,19 @@
     left: 0;
     right: 0;
     bottom: 0;
+  }
+}
+
+/* start of phone styles */
+@media only screen and (max-width: 480px) {
+  .product-item {
+    width: 14rem;
+  }
+}
+
+/* start of tablet styles */
+@media only screen and (max-width: 767px) {
+  .product-item {
+    width: 14rem;
   }
 }
