@@ -1,5 +1,5 @@
 // react libraries
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // styles
@@ -17,23 +17,39 @@ const ProductItem = ({
   grade,
   imgUrl,
   storage,
-  unitPrice,
   lockStatus,
 }) => {
+  // state
+  const [itemPrice, setPrice] = useState(grade["New"]);
+
+  /**
+   * @desc handles on change event on select tag
+   */
+  const handleItemSelection = () => {
+    if (event.target.value in grade) {
+      setPrice(grade[event.target.value]);
+    }
+  };
+
   return (
     <div className="product-item">
       <div className="img-card">
         <img src={imgUrl} alt={`${name}_img`} />
         <div className="device-grade">
-          <select id="grade" name="grade" className="grade-drop-down">
-            <option value="new">New</option>
-            <option value="a1">A1</option>
-            <option value="a2">A2</option>
-            <option value="b1">B1</option>
-            <option value="b2">B2</option>
-            <option value="c">C</option>
-            <option value="cb">CB</option>
-            <option value="cd">CD</option>
+          <select
+            id="grade"
+            name="grade"
+            className="grade-drop-down"
+            onChange={handleItemSelection}
+          >
+            <option value="New">New</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C">C</option>
+            <option value="CB">CB</option>
+            <option value="CD">CD</option>
           </select>
         </div>
       </div>
@@ -45,7 +61,7 @@ const ProductItem = ({
       </div>
       <div className="unit-price">
         <div>Unit Price</div>
-        <div>{unitPrice}</div>
+        <div>{itemPrice}</div>
       </div>
       <div className="available-unit">
         <span>{availableUnit}</span>
@@ -62,10 +78,9 @@ const ProductItem = ({
 ProductItem.propTypes = {
   name: PropTypes.string.isRequired,
   availableUnit: PropTypes.number.isRequired,
-  grade: PropTypes.string.isRequired,
+  grade: PropTypes.object.isRequired,
   imgUrl: PropTypes.string.isRequired,
   storage: PropTypes.string.isRequired,
-  unitPrice: PropTypes.string.isRequired,
   lockStatus: PropTypes.string.isRequired,
 };
 

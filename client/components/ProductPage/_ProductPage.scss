@@ -3,12 +3,51 @@
   grid-template-columns: 1fr 3fr;
   grid-gap: 5%;
   width: 80%;
-  margin: 8rem auto;
+  margin: 8rem auto 0;
 
-  .section-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+  .item-list-wrapper {
+    position: relative;
+
+    .section-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+      // margin-bottom: 4rem;
+    }
+
+    .list-pagination {
+      position: absolute;
+      margin-top: 8rem;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 2rem;
+      list-style: none;
+
+      .active {
+        background-color: #1e242f;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+      }
+
+      li {
+        padding: 6px 10px;
+        a {
+          color: inherit;
+        }
+
+        &:hover {
+          background-color: #1e242f;
+          border: 1px solid #ddd;
+          border-radius: 3px;
+        }
+      }
+    }
   }
 }
 

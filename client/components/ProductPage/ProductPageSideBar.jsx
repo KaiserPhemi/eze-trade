@@ -10,6 +10,7 @@ import "./_ProductListSideBar.scss";
 
 // components
 import Button from "../Common/Button";
+import HorizontalRule from "../Common/HorizontalRule";
 
 /**
  * @desc side bar on product listed
@@ -37,7 +38,6 @@ const ProductPageSideBar = () => {
       });
       console.log("response", await apiResponse.json());
     };
-
     setFile(null);
   };
 
@@ -50,7 +50,7 @@ const ProductPageSideBar = () => {
 
   return (
     <section className="side-bar-wrapper">
-      <div className="add-item-group">
+      <div className="side-bar-item add-item-group">
         <h4>Upload new Trade Request (.csv files only)</h4>
         <input
           accept=".csv"
@@ -86,6 +86,7 @@ const ProductPageSideBar = () => {
           onClick={uploadData}
         />
       </div>
+      <HorizontalRule />
       <div className="side-bar-item category">
         <h4>Categories</h4>
         <ul>
@@ -109,10 +110,12 @@ const ProductPageSideBar = () => {
           </li>
         </ul>
       </div>
+      <HorizontalRule />
       <div className="side-bar-item price-wrapper">
         <h4>Price Filter</h4>
         <input className="price-slider" type="range" />
       </div>
+      <HorizontalRule />
       <div className="side-bar-item storage-checklist">
         <h4>Storage</h4>
         <label htmlFor="size-32" className="storage-picker">

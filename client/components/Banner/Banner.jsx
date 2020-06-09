@@ -21,7 +21,7 @@ const Banner = () => {
         <p className="banner-text">{BANNER_TEXT}</p>
         <form className="search-field-form">
           <Input placeHolder={INPUT_TEXT} />
-          &nbsp;
+          &emsp;
           <Button btnText="search" />
         </form>
       </div>

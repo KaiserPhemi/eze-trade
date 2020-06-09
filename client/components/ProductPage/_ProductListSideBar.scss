@@ -1,6 +1,8 @@
 .side-bar-wrapper {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  // display: grid;
+  // grid-template-rows: repeat(3, 1fr);
   grid-gap: 2rem;
   background-color: #1e242f;
   // height: 100vh;
@@ -9,6 +11,7 @@
   border-radius: 4px;
 
   .side-bar-item {
+    padding: 2rem;
   }
 
   .add-item-group {
